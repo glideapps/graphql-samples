@@ -24,3 +24,4 @@ if [ ! -f "$GQLSCHEMA_FILENAME" ] ; then
 fi
 
 quicktype --lang "csharp" --namespace "QuickTypeDemo" -o "csharp/Schema.cs" "$SCHEMA_DIR"
+quicktype --lang "typescript" -o "typescript/schema.ts" "$SCHEMA_DIR"

@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": ["es2015", "esnext.asynciterable"],
+        "allowJs": false,
+        "declaration": true,
+        "strict": true,
+        "outDir": "dist",
+        "sourceMap": true,
+        "noUnusedParameters": true
+    },
+    "include": [
+      "*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
