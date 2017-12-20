@@ -4,7 +4,7 @@
   "description": "A sample app that shows how to use quicktype for GraphQL",
   "main": "app.ts",
   "scripts": {
-    "run": "ts-node app.ts",
+    "start": "ts-node app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
