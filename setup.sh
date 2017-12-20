@@ -20,6 +20,11 @@ else
     exit 1
 fi
 
+run_quicktype() {
+    echo "  $QUICKTYPE" "$@"
+    $QUICKTYPE "$@"
+}
+
 if [ ! -f "$GQLSCHEMA_FILENAME" ] ; then
     if [ ! -f "$TOKEN_FILENAME" ] ; then
         echo "Error: No authentication token file found.  Please follow these instructions"
@@ -34,10 +39,14 @@ if [ ! -f "$GQLSCHEMA_FILENAME" ] ; then
 
     TOKEN=`cat "$TOKEN_FILENAME"`
 
-    $QUICKTYPE --graphql-server-header "Authorization: bearer $TOKEN" \
+    echo "Fetching the GraphQL schema"
+    run_quicktype --graphql-server-header "Authorization: bearer $TOKEN" \
         --graphql-introspect "https://api.github.com/graphql" \
         --graphql-schema "$GQLSCHEMA_FILENAME"
 fi
 
-$QUICKTYPE --lang "csharp" --namespace "QuickTypeDemo" -o "csharp/Schema.cs" "$SCHEMA_DIR"
-$QUICKTYPE --lang "typescript" -o "typescript/schema.ts" "$SCHEMA_DIR"
+echo "Generating C# code"
+run_quicktype --lang "csharp" --namespace "QuickTypeDemo" -o "csharp/Schema.cs" "$SCHEMA_DIR"
+
+echo "Generating TypeScript code"
+run_quicktype --lang "typescript" -o "typescript/schema.ts" "$SCHEMA_DIR"
