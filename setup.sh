@@ -40,7 +40,7 @@ if [ ! -f "$GQLSCHEMA_FILENAME" ] ; then
     TOKEN=`cat "$TOKEN_FILENAME"`
 
     echo "Fetching the GraphQL schema"
-    run_quicktype --graphql-server-header "Authorization: bearer $TOKEN" \
+    run_quicktype --http-header "Authorization: Bearer $TOKEN" \
         --graphql-introspect "https://api.github.com/graphql" \
         --graphql-schema "$GQLSCHEMA_FILENAME"
 fi
