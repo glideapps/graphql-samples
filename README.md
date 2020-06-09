@@ -4,6 +4,7 @@ The samples in this repository demonstrate how to use
 [quicktype](https://quicktype.io/) to do statically typed
 [GraphQL](http://graphql.org/) queries to the
 [GitHub API](https://developer.github.com/v4/).
+Learn more about [Typesafe GraphQL queries with quicktype](https://blog.quicktype.io/graphql-with-quicktype/).
 
 With traditional REST APIs, you have to make multiple queries to collect the data needed by your app. For example, to get the followers for all of a user’s GitHub repos, you’d first query for a list of the user’s repos, then perform a query for each repo to get the followers. For a user with *n* repos, that’s *n+1* queries, which means your app will be slow and will need a cumbersome UI (e.g. loading spinners, lazy lists).
 
